@@ -1,0 +1,41 @@
+java
+import java.util.Scanner;
+
+public class ConversorMoneda {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Tasas de cambio (puedes actualizarlas según sea necesario)
+        final double TASA_DOLAR_A_EURO = 0.85; // Ejemplo: 1 USD = 0.85 EUR
+        final double TASA_EURO_A_DOLAR = 1.18; // Ejemplo: 1 EUR = 1.18 USD
+        
+        System.out.println("Bienvenido al Conversor de Dinero");
+        System.out.println("Seleccione la opción que desea:");
+        System.out.println("1. Convertir Dólares a Euros");
+        System.out.println("2. Convertir Euros a Dólares");
+        
+        int opcion = scanner.nextInt();
+        
+        switch (opcion) {
+            case 1:
+                System.out.print("Ingrese la cantidad en Dólares: ");
+                double dolares = scanner.nextDouble();
+                double eurosConvertidos = dolares * TASA_DOLAR_A_EURO;
+                System.out.printf("%.2f Dólares son %.2f Euros%n", dolares, eurosConvertidos);
+                break;
+                
+            case 2:
+                System.out.print("Ingrese la cantidad en Euros: ");
+                double euros = scanner.nextDouble();
+                double dolaresConvertidos = euros * TASA_EURO_A_DOLAR;
+                System.out.printf("%.2f Euros son %.2f Dólares%n", euros, dolaresConvertidos);
+                break;
+                
+            default:
+                System.out.println("Opción no válida.");
+                break;
+        }
+        
+        scanner.close();
+    }
+}
